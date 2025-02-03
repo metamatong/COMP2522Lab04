@@ -34,12 +34,13 @@ public class Name implements Printable
         final boolean longerThanFifty;
 
         blank = name == null || name.isEmpty();
-        longerThanFifty = name.length() >= 50;
-
         if(blank)
         {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
+
+        longerThanFifty = name.length() >= 50;
+
         if(longerThanFifty)
         {
             throw new IllegalArgumentException("Name cannot exceed 50 characters");
