@@ -36,11 +36,10 @@ public class Name implements Printable{
 
     /**
      * This method overrides display() method from Printable and
-     * prints every instance variable to the console.
+     * prints full name of the Name instance.
      */
     @Override
     public void display() {
-        System.out.println("First Name: " + first);
-        System.out.println("Last Name: " + last);
+        System.out.println("The Full Name: " + first + " " + last);
     }
 }
