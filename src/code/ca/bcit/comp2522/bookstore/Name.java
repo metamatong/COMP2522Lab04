@@ -25,6 +25,26 @@ public class Name implements Printable
         this.last = last;
     }
 
+    /**
+     * An accessor method for first name of the Name object.
+     *
+     * @return a String for the first name of the Name object.
+     */
+    public String getFirstName()
+    {
+       return this.first;
+    }
+
+    /**
+     * An accessor method for last name of the Name object.
+     *
+     * @return a String for the last name of the Name object.
+     */
+    public String getLastName()
+    {
+        return this.last;
+    }
+
     /*
      * Validates name in string whether they are blank, null, or longer than 50 characters.
      */

@@ -152,6 +152,15 @@ public class Date implements Printable
     }
 
     /**
+     * A getter to fetch month of the Date object.
+     * @return the integer month of the Date object.
+     */
+    public int getMonthInInteger()
+    {
+        return this.month;
+    }
+
+    /**
      * A getter to fetch year of the Date object.
      * @return the year of the Date object.
      */
@@ -239,7 +248,7 @@ public class Date implements Printable
         yearLate = year > CURRENT_YEAR;
         invalidYear = yearEarly || yearLate;
 
-        if (invalidYear)
+        if(invalidYear)
         {
             throw new IllegalArgumentException("Year must be between 1800 and + " + CURRENT_YEAR);
         }
@@ -259,7 +268,7 @@ public class Date implements Printable
         monthBelowJanuary = month < MONTH_JANUARY;
         invalidMonth = monthAboveDecember || monthBelowJanuary;
 
-        if (invalidMonth)
+        if(invalidMonth)
         {
             throw new IllegalArgumentException("Month must be between 1 and 12.");
         }
@@ -300,19 +309,19 @@ public class Date implements Printable
         exceedShortMaxDay = day > LAST_DAY_OF_THE_SHORT_MONTH;
 
         validateMonth(month);
-        if (dayValid)
+        if(dayValid)
         {
             throw new IllegalArgumentException("Day must be between 1 and 31.");
-        } else if (exceedMaxDay)
+        } else if(exceedMaxDay)
         {
             throw new IllegalArgumentException("Day must be between 1 and 30 for April, June, September, November.");
-        } else if (exceedFebruary)
+        } else if(exceedFebruary)
         {
             throw new IllegalArgumentException("Day must be between 1 and 28 for February.");
-        } else if (exceedLeapFebruary)
+        } else if(exceedLeapFebruary)
         {
             throw new IllegalArgumentException("Day must be between 1 and 29 for February in leap year.");
-        } else if (exceedShortMaxDay)
+        } else if(exceedShortMaxDay)
         {
             throw new IllegalArgumentException("Day must be between 1 and 30 for January, March, May, July, August," +
                     " October, December.");
@@ -334,9 +343,9 @@ public class Date implements Printable
         noRemainderCentury = year % LAST_TWO_DIGIT_EXTRACTOR == NO_REMAINDER;
         noRemainderCommonMultiple = year % LEAP_YEAR_DENOMINATOR_COMMON_MULTIPLE == NO_REMAINDER;
 
-        if (noRemainder)
+        if(noRemainder)
         {
-            if (noRemainderCentury)
+            if(noRemainderCentury)
             {
                 return noRemainderCommonMultiple;
             }
@@ -400,13 +409,13 @@ public class Date implements Printable
         nineteenthCentury = year <= NINETEENTH_CENTURY_MAX_FOR_LEAP_YEAR &&
                 year >= NINETEENTH_CENTURY_FOR_LEAP_YEAR;
 
-        if (janOrFeb && isLeapYear(year))
+        if(janOrFeb && isLeapYear(year))
         {
             return LEAP_YEAR_OFFSET;
-        } else if (validYearRange)
+        } else if(validYearRange)
         {
             return MILLENNIUM_OFFSET;
-        } else if (nineteenthCentury)
+        } else if(nineteenthCentury)
         {
             return NINETEENTH_CENTURY_OFFSET;
         }
