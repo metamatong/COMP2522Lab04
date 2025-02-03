@@ -6,7 +6,7 @@ package ca.bcit.comp2522.bookstore;
  * @author Shawn Lee
  * @version 1.0
  */
-public class Date
+public class Date implements Printable
 {
     private static final int EARLIEST_YEAR = 1800;
     private static final int CURRENT_YEAR = 2025;
@@ -411,5 +411,16 @@ public class Date
             return NINETEENTH_CENTURY_OFFSET;
         }
         return ZERO_OFFSET;
+    }
+
+    /**
+     * This method overrides display() method from Printable and
+     * prints every instance variable to the console.
+     */
+    @Override
+    public void display() {
+        System.out.println("Year: " + year);
+        System.out.println("Month: " + month);
+        System.out.println("Day: " + day);
     }
 }
