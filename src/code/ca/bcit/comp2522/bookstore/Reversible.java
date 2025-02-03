@@ -6,7 +6,8 @@ package ca.bcit.comp2522.bookstore;
  * @author Tommy Nguyen
  * @version 1.0
  */
-public interface Reversible {
+public interface Reversible
+{
 
     /**
      * Prints the name/title backward.

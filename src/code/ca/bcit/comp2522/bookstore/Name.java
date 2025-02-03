@@ -6,7 +6,8 @@ package ca.bcit.comp2522.bookstore;
  * @author Tommy Nguyen
  * @version 1.0
  */
-public class Name implements Printable{
+public class Name implements Printable
+{
     private final String first;
     private final String last;
 
@@ -15,7 +16,9 @@ public class Name implements Printable{
      * @param first the first name of the Name instance.
      * @param last the last name of the Name instance.
      */
-    Name(final String first, final String last) {
+    Name(final String first,
+         final String last)
+    {
         validateName(first);
         validateName(last);
         this.first = first;
@@ -25,17 +28,20 @@ public class Name implements Printable{
     /*
      * Validates name in string whether they are blank, null, or longer than 50 characters.
      */
-    private void validateName(final String name) {
+    private void validateName(final String name)
+    {
         final boolean blank;
         final boolean longerThanFifty;
 
         blank = name == null || name.isEmpty();
         longerThanFifty = name.length() >= 50;
 
-        if (blank) {
+        if(blank)
+        {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
-        if (longerThanFifty) {
+        if(longerThanFifty)
+        {
             throw new IllegalArgumentException("Name cannot exceed 50 characters");
         }
     }
@@ -45,7 +51,8 @@ public class Name implements Printable{
      * prints full name of the Name instance.
      */
     @Override
-    public void display() {
+    public void display()
+    {
         System.out.println("The Full Name: " + first + " " + last);
     }
 }

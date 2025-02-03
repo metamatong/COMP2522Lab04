@@ -6,7 +6,8 @@ package ca.bcit.comp2522.bookstore;
  * @author Tommy Nguyen
  * @version 1.0
  */
-public interface Printable {
+public interface Printable
+{
 
     /**
      * Prints every instance variable (including those in parent classes)
