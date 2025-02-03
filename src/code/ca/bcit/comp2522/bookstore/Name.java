@@ -1,5 +1,11 @@
 package ca.bcit.comp2522.bookstore;
 
+/**
+ * A class to represent a full name of a person.
+ * @author Kyle Cheon
+ * @author Tommy Nguyen
+ * @version 1.0
+ */
 public class Name implements Printable{
     private final String first;
     private final String last;
