@@ -50,6 +50,13 @@ public class Person implements Comparable<Person>, Printable, Reversible
         return this.dateOfDeath;
     }
 
+
+
+    public Name getName()
+    {
+        return this.name;
+    }
+
     /**
      * This method overrides display() method from Printable and
      * prints every data of the Person instance.
