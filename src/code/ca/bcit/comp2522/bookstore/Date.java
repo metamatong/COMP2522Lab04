@@ -61,6 +61,7 @@ public class Date implements Printable
     private static final int LEAP_YEAR_OFFSET = 6;
     private static final int MILLENNIUM_OFFSET = 6;
     private static final int NINETEENTH_CENTURY_OFFSET = 2;
+    private static final int EIGHTTEENTH_CENTURY_OFFSET = 4;
 
     private static final int LAST_TWO_DIGIT_EXTRACTOR = 100;
     private static final int NUMBER_OF_MONTHS = 12;
@@ -80,6 +81,8 @@ public class Date implements Printable
     private static final int MILLENNIUM_MIN_FOR_LEAP_YEAR = 2000;
     private static final int NINETEENTH_CENTURY_MAX_FOR_LEAP_YEAR = 1899;
     private static final int NINETEENTH_CENTURY_FOR_LEAP_YEAR = 1800;
+    private static final int EIGHTTEENTH_CENTURY_MAX_FOR_LEAP_YEAR = 1799;
+    private static final int EIGHTTEENTH_CENTURY_FOR_LEAP_YEAR = 1700;
     private static final int ZERO_OFFSET = 0;
 
     private final int year;
@@ -399,7 +402,7 @@ public class Date implements Printable
         final boolean janOrFeb;
         final boolean validYearRange;
         final boolean nineteenthCentury;
-
+        final boolean eightteenthCentury;
 
 
         janOrFeb = month == MONTH_JANUARY ||
@@ -408,6 +411,8 @@ public class Date implements Printable
                 year >= MILLENNIUM_MIN_FOR_LEAP_YEAR;
         nineteenthCentury = year <= NINETEENTH_CENTURY_MAX_FOR_LEAP_YEAR &&
                 year >= NINETEENTH_CENTURY_FOR_LEAP_YEAR;
+        eightteenthCentury = year >= EIGHTTEENTH_CENTURY_FOR_LEAP_YEAR &&
+                year <= EIGHTTEENTH_CENTURY_MAX_FOR_LEAP_YEAR;
 
         if(janOrFeb && isLeapYear(year))
         {
@@ -418,6 +423,10 @@ public class Date implements Printable
         } else if(nineteenthCentury)
         {
             return NINETEENTH_CENTURY_OFFSET;
+        }
+        else if(eightteenthCentury)
+        {
+            return EIGHTTEENTH_CENTURY_OFFSET;
         }
         return ZERO_OFFSET;
     }
