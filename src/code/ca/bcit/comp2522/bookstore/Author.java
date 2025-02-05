@@ -70,7 +70,7 @@ public class Author extends Person implements Printable
             System.out.println("Date of Death: " + getDeathDate());
         }
 
-        System.out.println("Name: " + getName());
+        System.out.println("Name: " + getName().getFirstName() + " " + getName().getLastName());
         System.out.println("Genre: " + getGenre());
     }
 

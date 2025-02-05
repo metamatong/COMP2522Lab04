@@ -15,7 +15,11 @@ public class Autobiography extends Biography implements Printable {
 
     public void display() {
         super.display();
-        System.out.println("Author: " + getAuthor() + "wrote this autobiography themselves" );
+        System.out.println("Author: " +
+                getAuthor().getName().getFirstName() +
+                " " +
+                getAuthor().getName().getLastName() +
+                " wrote this autobiography themselves." );
     }
 
 

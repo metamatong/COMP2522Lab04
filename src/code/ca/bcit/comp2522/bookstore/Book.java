@@ -71,7 +71,8 @@ public class Book implements Comparable<Book>, Printable, Reversible
     {
         final StringBuilder sb = new StringBuilder("Book Title: " + this.title);
         sb.append("\nYear Published: ").append(this.yearPublished);
-        sb.append("\nAuthor: ").append(this.author.toString());
+        sb.append("\nAuthor: ");
+        sb.append(this.author.getName().getFirstName()).append(" ").append(this.author.getName().getLastName());
 
         System.out.println(sb);
     }

@@ -90,8 +90,11 @@ public class Biography extends Book implements Printable
     {
         final StringBuilder sb = new StringBuilder("Book Title: " + this.getTitle());
         sb.append("\nYear Published: ").append(this.getYearPublished());
-        sb.append("\nAuthor: ").append(this.getAuthor().toString());
-        sb.append("\nSubject: ").append(subject);
+        sb.append("\nAuthor: ");
+        sb.append(this.getAuthor().getName().getFirstName()).append(" ");
+        sb.append(this.getAuthor().getName().getLastName());
+        sb.append("\nSubject: ").append(subject.getName().getFirstName()).append(" ");
+        sb.append(subject.getName().getLastName());
         System.out.println(sb);
     }
 
