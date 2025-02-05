@@ -54,9 +54,19 @@ public class Biography extends Book implements Printable
     @Override
     public boolean equals(final Object o)
     {
-        if(o == null || getClass() != o.getClass()) return false;
+        if(this == o)
+        {
+            return true;
+        }
+
+        if(o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
+
         Biography biography = (Biography) o;
-        return Objects.equals(subject, biography.subject);
+
+        return subject == biography.subject;
     }
 
     /**
