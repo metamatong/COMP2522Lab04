@@ -250,7 +250,7 @@ public class Date implements Printable
 
         if(invalidYear)
         {
-            throw new IllegalArgumentException("Year must be between 1800 and + " + CURRENT_YEAR);
+            throw new IllegalArgumentException("Year must be between " + EARLIEST_YEAR + " and " + CURRENT_YEAR);
         }
     }
 
