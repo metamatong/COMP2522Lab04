@@ -18,7 +18,8 @@ package ca.bcit.comp2522.bookstore;
  * @author Tommy Nguyen
  * @version 1.0
  */
-public class Author extends Person {
+public class Author extends Person implements Printable
+{
 
     private final String genre;
     private static final int MAX_GENRE_LENGTH = 30;
@@ -34,31 +35,11 @@ public class Author extends Person {
     public Author(final Date dateOfBirth,
                   final Date dateOfDeath,
                   final Name name,
-                  final String genre) {
-
+                  final String genre)
+    {
         super(dateOfBirth, dateOfDeath, name);
         validateGenre(genre);
         this.genre = genre;
-    }
-
-    /**
-     * Validates the genre of the Author.
-     * Ensures the genre is not null, not blank, and does not exceed the maximum length.
-     *
-     * @param genre the literary genre of the Author.
-     */
-    private void validateGenre(final String genre) {
-        if (genre == null) {
-            throw new IllegalArgumentException("Genre can't be null");
-        }
-
-        if (genre.isBlank()) {
-            throw new IllegalArgumentException("Genre can't be blank");
-        }
-
-        if (genre.length() > MAX_GENRE_LENGTH) {
-            throw new IllegalArgumentException("Genre should be less than " + MAX_GENRE_LENGTH);
-        }
     }
 
     /**
@@ -66,7 +47,8 @@ public class Author extends Person {
      *
      * @return a String representing the literary genre of the Author.
      */
-    public String getGenre() {
+    public String getGenre()
+    {
         return genre;
     }
 
@@ -75,18 +57,44 @@ public class Author extends Person {
      * prints every data field of the Author instance.
      */
     @Override
-    public void display() {
+    public void display()
+    {
         final boolean deathDateNull;
 
         deathDateNull = getDeathDate() == null;
 
         System.out.println("Date of Birth: " + getBirthDate());
 
-        if (!deathDateNull) {
+        if(!deathDateNull)
+        {
             System.out.println("Date of Death: " + getDeathDate());
         }
 
         System.out.println("Name: " + getName());
         System.out.println("Genre: " + getGenre());
+    }
+
+    /*
+     * Validates the genre of the Author.
+     * Ensures the genre is not null, not blank, and does not exceed the maximum length.
+     *
+     * @param genre the literary genre of the Author.
+     */
+    private void validateGenre(final String genre)
+    {
+        if(genre == null)
+        {
+            throw new IllegalArgumentException("Genre can't be null");
+        }
+
+        if (genre.isBlank())
+        {
+            throw new IllegalArgumentException("Genre can't be blank");
+        }
+
+        if(genre.length() > MAX_GENRE_LENGTH)
+        {
+            throw new IllegalArgumentException("Genre should be less than " + MAX_GENRE_LENGTH);
+        }
     }
 }
