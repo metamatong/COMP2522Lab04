@@ -289,16 +289,15 @@ public class Date implements Printable
                                     final int month,
                                     final int day)
     {
-        final boolean dayValid;
-        final boolean exceedMaxDay;
+        final boolean dayNotValid;
         final boolean exceedFebruary;
         final boolean exceedLeapFebruary;
         final boolean exceedShortMaxDay;
 
 
-        dayValid = day < FIRST_DAY_OF_THE_MONTH ||
+        dayNotValid = day < FIRST_DAY_OF_THE_MONTH ||
                 day > LAST_DAY_OF_THE_LONG_MONTH;
-        exceedMaxDay = (day > LAST_DAY_OF_THE_SHORT_MONTH) && (
+        exceedShortMaxDay = (day > LAST_DAY_OF_THE_SHORT_MONTH) && (
                 month == MONTH_APRIL ||
                         month == MONTH_JUNE ||
                         month == MONTH_SEPTEMBER ||
@@ -309,13 +308,12 @@ public class Date implements Printable
         exceedLeapFebruary = month == MONTH_FEBRUARY &&
                 isLeapYear(year) &&
                 day > LAST_DAY_OF_THE_LEAP_YEAR_FEBRUARY;
-        exceedShortMaxDay = day > LAST_DAY_OF_THE_SHORT_MONTH;
 
         validateMonth(month);
-        if(dayValid)
+        if(dayNotValid)
         {
             throw new IllegalArgumentException("Day must be between 1 and 31.");
-        } else if(exceedMaxDay)
+        } else if(exceedShortMaxDay)
         {
             throw new IllegalArgumentException("Day must be between 1 and 30 for April, June, September, November.");
         } else if(exceedFebruary)
@@ -324,10 +322,6 @@ public class Date implements Printable
         } else if(exceedLeapFebruary)
         {
             throw new IllegalArgumentException("Day must be between 1 and 29 for February in leap year.");
-        } else if(exceedShortMaxDay)
-        {
-            throw new IllegalArgumentException("Day must be between 1 and 30 for January, March, May, July, August," +
-                    " October, December.");
         }
     }
 
