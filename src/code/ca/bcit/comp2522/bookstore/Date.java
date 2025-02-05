@@ -8,7 +8,7 @@ package ca.bcit.comp2522.bookstore;
  */
 public class Date implements Printable
 {
-    private static final int EARLIEST_YEAR = 1800;
+    private static final int EARLIEST_YEAR = 1700;
     private static final int CURRENT_YEAR = 2025;
 
     private static final String STRING_JANUARY = "January";
