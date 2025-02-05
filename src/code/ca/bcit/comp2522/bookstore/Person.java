@@ -162,12 +162,12 @@ public class Person implements Comparable<Person>, Printable, Reversible
             throw new IllegalArgumentException("Date cannot be null.");
         }
 
-        deathPrecedesBirthByYear = dateOfDeath.getYear() > dateOfBirth.getYear();
-        deathPrecedesBirthByMonth = dateOfDeath.getYear() >= dateOfBirth.getYear() &&
-                                   dateOfDeath.getMonthInInteger() > dateOfBirth.getMonthInInteger();
-        deathPrecedesBirthByDay = dateOfDeath.getYear() >= dateOfBirth.getYear() &&
-                                 dateOfDeath.getMonthInInteger() >= dateOfBirth.getMonthInInteger() &&
-                                 dateOfDeath.getMonthInInteger() > dateOfBirth.getMonthInInteger();
+        deathPrecedesBirthByYear = dateOfDeath.getYear() < dateOfBirth.getYear();
+        deathPrecedesBirthByMonth = dateOfDeath.getYear() <= dateOfBirth.getYear() &&
+                                   dateOfDeath.getMonthInInteger() < dateOfBirth.getMonthInInteger();
+        deathPrecedesBirthByDay = dateOfDeath.getYear() <= dateOfBirth.getYear() &&
+                                 dateOfDeath.getMonthInInteger() <= dateOfBirth.getMonthInInteger() &&
+                                 dateOfDeath.getMonthInInteger() < dateOfBirth.getMonthInInteger();
 
         if(deathPrecedesBirthByYear ||
            deathPrecedesBirthByMonth ||
