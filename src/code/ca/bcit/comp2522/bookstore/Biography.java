@@ -20,7 +20,8 @@ import java.util.Objects;
  * @author [Your Name]
  * @version 1.0
  */
-public class Biography extends Book implements Printable {
+public class Biography extends Book implements Printable
+{
 
     private final Person subject;
 
@@ -44,18 +45,6 @@ public class Biography extends Book implements Printable {
     }
 
     /**
-     * Validates the subject of the biography to ensure it is not null.
-     *
-     * @param subject the subject of the biography
-     * @throws IllegalArgumentException if the subject is null
-     */
-    public void validateSubject(final Person subject) {
-        if (subject == null) {
-            throw new IllegalArgumentException("Subject cannot be null");
-        }
-    }
-
-    /**
      * Compares this Biography to another object for equality.
      * Two biographies are considered equal if they are about the same subject.
      *
@@ -63,8 +52,9 @@ public class Biography extends Book implements Printable {
      * @return true if the objects are equal, false otherwise
      */
     @Override
-    public boolean equals(final Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o)
+    {
+        if(o == null || getClass() != o.getClass()) return false;
         Biography biography = (Biography) o;
         return Objects.equals(subject, biography.subject);
     }
@@ -76,7 +66,8 @@ public class Biography extends Book implements Printable {
      * @return a hash code representing the Biography object
      */
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hashCode(subject);
     }
 
@@ -85,7 +76,8 @@ public class Biography extends Book implements Printable {
      * Prints the title, year published, author, and subject of the biography.
      */
 
-    public void display() {
+    public void display()
+    {
         final StringBuilder sb = new StringBuilder("Book Title: " + this.getTitle());
         sb.append("\nYear Published: ").append(this.getYearPublished());
         sb.append("\nAuthor: ").append(this.getAuthor().toString());
@@ -93,4 +85,17 @@ public class Biography extends Book implements Printable {
         System.out.println(sb);
     }
 
+    /*
+     * Validates the subject of the biography to ensure it is not null.
+     *
+     * @param subject the subject of the biography
+     * @throws IllegalArgumentException if the subject is null
+     */
+    private static void validateSubject(final Person subject)
+    {
+        if(subject == null)
+        {
+            throw new IllegalArgumentException("Subject cannot be null");
+        }
+    }
 }
