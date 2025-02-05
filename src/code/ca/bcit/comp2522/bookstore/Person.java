@@ -8,6 +8,8 @@ package ca.bcit.comp2522.bookstore;
  */
 public class Person implements Comparable<Person>, Printable, Reversible
 {
+    private static final int ZERO = 0;
+
     private final Date dateOfBirth;
     private Date dateOfDeath;
     private final Name name;
@@ -116,11 +118,11 @@ public class Person implements Comparable<Person>, Printable, Reversible
         differenceByMonth = o.getBirthDate().getMonthInInteger() - this.getBirthDate().getMonthInInteger();
         differenceByDay = o.getBirthDate().getDay() - this.getBirthDate().getDay();
 
-        if(differenceByYear != 0)
+        if(differenceByYear != ZERO)
         {
             return differenceByYear;
         }
-        if(differenceByMonth != 0)
+        if(differenceByMonth != ZERO)
         {
             return differenceByMonth;
         }

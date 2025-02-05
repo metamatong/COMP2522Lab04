@@ -8,6 +8,8 @@ package ca.bcit.comp2522.bookstore;
  */
 public class Name implements Printable
 {
+    private static final int MAX_NAME_LENGTH = 50;
+
     private final String first;
     private final String last;
 
@@ -59,7 +61,7 @@ public class Name implements Printable
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
 
-        longerThanFifty = name.length() >= 50;
+        longerThanFifty = name.length() >= MAX_NAME_LENGTH;
 
         if(longerThanFifty)
         {
