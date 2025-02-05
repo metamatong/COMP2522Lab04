@@ -14,7 +14,8 @@ package ca.bcit.comp2522.bookstore;
  * @author Tommy Nguyen
  * @version 1.0
  */
-public class Book implements Comparable<Book>, Printable, Reversible {
+public class Book implements Comparable<Book>, Printable, Reversible
+{
 
     private final String title;
     private final int yearPublished;
@@ -32,52 +33,16 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      * @param author        the author of the book (must not be null)
      * @throws IllegalArgumentException if any parameter is invalid
      */
-    public Book(final String title, final int yearPublished, final Author author) {
+    public Book(final String title,
+                final int yearPublished,
+                final Author author)
+    {
         validateTitle(title);
         validateYearPublished(yearPublished);
         validateAuthor(author);
         this.title = title;
         this.yearPublished = yearPublished;
         this.author = author;
-    }
-
-    /**
-     * Validates the book title.
-     *
-     * @param title the title of the book
-     * @throws IllegalArgumentException if the title is null, empty, or exceeds 100 characters
-     */
-    private void validateTitle(final String title) {
-        if (title == null || title.isEmpty()) {
-            throw new IllegalArgumentException("Title cannot be null or empty");
-        }
-        if (title.length() > CHARACTER_LIMIT) {
-            throw new IllegalArgumentException("Title must not exceed " + CHARACTER_LIMIT + " characters");
-        }
-    }
-
-    /**
-     * Validates the publication year.
-     *
-     * @param yearPublished the year the book was published
-     * @throws IllegalArgumentException if the year is not between 1 and 2025
-     */
-    private void validateYearPublished(final int yearPublished) {
-        if (yearPublished < THE_FIRST_YEAR || yearPublished > THE_CURRENT_YEAR) {
-            throw new IllegalArgumentException("Year published must be between " + THE_FIRST_YEAR + " and " + THE_CURRENT_YEAR);
-        }
-    }
-
-    /**
-     * Validates the author.
-     *
-     * @param author the author of the book
-     * @throws IllegalArgumentException if the author is null
-     */
-    private void validateAuthor(final Author author) {
-        if (author == null) {
-            throw new IllegalArgumentException("Author cannot be null");
-        }
     }
 
     /**
@@ -89,8 +54,10 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      * @throws IllegalArgumentException if the other book is null
      */
     @Override
-    public int compareTo(final Book o) {
-        if (o == null) {
+    public int compareTo(final Book o)
+    {
+        if(o == null)
+        {
             throw new IllegalArgumentException("Book cannot be null");
         }
         return Integer.compare(o.yearPublished, this.yearPublished);
@@ -100,7 +67,8 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      * Displays the book's details including title, publication year, and author.
      */
     @Override
-    public void display() {
+    public void display()
+    {
         final StringBuilder sb = new StringBuilder("Book Title: " + this.title);
         sb.append("\nYear Published: ").append(this.yearPublished);
         sb.append("\nAuthor: ").append(this.author.toString());
@@ -112,7 +80,8 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      * Prints the book's title in reverse.
      */
     @Override
-    public void backward() {
+    public void backward()
+    {
         StringBuilder sb = new StringBuilder(this.title);
         sb.reverse();
         System.out.println(sb);
@@ -123,7 +92,8 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      *
      * @return the book title
      */
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
@@ -132,7 +102,8 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      *
      * @return the year the book was published
      */
-    public int getYearPublished() {
+    public int getYearPublished()
+    {
         return yearPublished;
     }
 
@@ -141,7 +112,55 @@ public class Book implements Comparable<Book>, Printable, Reversible {
      *
      * @return the author of the book
      */
-    public Author getAuthor() {
+    public Author getAuthor()
+    {
         return author;
+    }
+
+
+    /*
+     * Validates the book title.
+     *
+     * @param title the title of the book
+     * @throws IllegalArgumentException if the title is null, empty, or exceeds 100 characters
+     */
+    private static void validateTitle(final String title)
+    {
+        if(title == null || title.isEmpty())
+        {
+            throw new IllegalArgumentException("Title cannot be null or empty");
+        }
+        if(title.length() > CHARACTER_LIMIT)
+        {
+            throw new IllegalArgumentException("Title must not exceed " + CHARACTER_LIMIT + " characters");
+        }
+    }
+
+    /*
+     * Validates the publication year.
+     *
+     * @param yearPublished the year the book was published
+     * @throws IllegalArgumentException if the year is not between 1 and 2025
+     */
+    private static void validateYearPublished(final int yearPublished)
+    {
+        if(yearPublished < THE_FIRST_YEAR || yearPublished > THE_CURRENT_YEAR)
+        {
+            throw new IllegalArgumentException("Year published must be between " + THE_FIRST_YEAR + " and " + THE_CURRENT_YEAR);
+        }
+    }
+
+    /*
+     * Validates the author.
+     *
+     * @param author the author of the book
+     * @throws IllegalArgumentException if the author is null
+     */
+    private static void validateAuthor(final Author author)
+    {
+        if(author == null)
+        {
+            throw new IllegalArgumentException("Author cannot be null");
+        }
     }
 }
