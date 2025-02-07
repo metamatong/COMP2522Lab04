@@ -17,7 +17,8 @@ import java.util.Objects;
  * - Overrides the equals() and hashCode() methods to compare two Biography objects based on the subject.
  * - Implements the display() method from Printable to print out details of the biography.
  *
- * @author [Your Name]
+ * @author Kyle Cheon
+ * @author Tommy Nguyen
  * @version 1.0
  */
 public class Biography extends Book implements Printable
@@ -34,10 +35,10 @@ public class Biography extends Book implements Printable
      * @param subject       the subject of the biography, represented as a Person object (must not be null)
      * @throws IllegalArgumentException if any parameter is invalid
      */
-    public Biography(String title,
-                     int yearPublished,
-                     Author author,
-                     Person subject)
+    public Biography(final String title,
+                     final int yearPublished,
+                     final Author author,
+                     final Person subject)
     {
         super(title, yearPublished, author);
         validateSubject(subject);

@@ -1,6 +1,21 @@
 package ca.bcit.comp2522.bookstore;
 
-public class Autobiography extends Biography implements Printable {
+/**
+ * A class representing a Autobiography, which is a type of Biography.
+ * An Autobiography contains information about a subject, who is the focus of the biography.
+ *
+ * Extends the Biography class.
+ * Implements the Printable interface.
+ *
+ * Methods:
+ * - Implements the display() method from Printable to print out details of the biography.
+ *
+ * @author Kyle Cheon
+ * @author Tommy Nguyen
+ * @version 1.0
+ */
+public class Autobiography extends Biography implements Printable
+{
     /**
      * Constructs a Biography object with a title, publication year, author, and subject.
      *
@@ -9,7 +24,10 @@ public class Autobiography extends Biography implements Printable {
      * @param author        the author of the book (must not be null)
      * @throws IllegalArgumentException if any parameter is invalid
      */
-    public Autobiography(String title, int yearPublished, Author author) {
+    public Autobiography(final String title,
+                         final int yearPublished,
+                         final Author author)
+    {
         super(title, yearPublished, author, author);
     }
 
