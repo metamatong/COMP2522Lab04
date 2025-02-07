@@ -22,7 +22,8 @@ public class Main
      *
      * @param args for commandline arguments
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
 
         /*
          *  STEP 1: CREATE FIVE AUTHORS & FIVE GREAT BOOKS
