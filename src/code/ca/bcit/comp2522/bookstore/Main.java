@@ -108,14 +108,12 @@ public class Main
         // Create Authors who wrote these biographies
         Author robertCaro = new Author(
                 new Date(1935, 10, 15),
-                null,
                 new Name("Robert", "Caro"),
                 "Biography"
         );
 
         Author walterIsaacson = new Author(
                 new Date(1952, 5, 20),
-                null,
                 new Name("Walter", "Isaacson"),
                 "Biography"
         );
@@ -129,7 +127,6 @@ public class Main
 
         Author ronChernow = new Author(
                 new Date(1949, 3, 3),
-                null,
                 new Name("Ron", "Chernow"),
                 "Biography"
         );
@@ -137,7 +134,6 @@ public class Main
         // Reuse Walter Isaacson for Einstein as well, or create a second reference
         Author walterIsaacson2 = new Author(
                 new Date(1952, 5, 20),
-                null,
                 new Name("Walter", "Isaacson"),
                 "Biography"
         );

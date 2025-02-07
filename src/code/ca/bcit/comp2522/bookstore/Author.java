@@ -28,6 +28,22 @@ public class Author extends Person implements Printable
      * A constructor to instantiate an Author object.
      *
      * @param dateOfBirth the date of birth of the Author instance.
+     * @param name the full name of the Author instance.
+     * @param genre the literary genre of the Author.
+     */
+    public Author(final Date dateOfBirth,
+                  final Name name,
+                  final String genre)
+    {
+        super(dateOfBirth, name);
+        validateGenre(genre);
+        this.genre = genre;
+    }
+
+    /**
+     * A constructor to instantiate an Author object.
+     *
+     * @param dateOfBirth the date of birth of the Author instance.
      * @param dateOfDeath the date of death of the Author instance.
      * @param name the full name of the Author instance.
      * @param genre the literary genre of the Author.

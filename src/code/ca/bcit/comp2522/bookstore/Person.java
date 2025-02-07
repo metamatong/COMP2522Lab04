@@ -17,6 +17,21 @@ public class Person implements Comparable<Person>, Printable, Reversible
     /*
      * A constructor to instantiate a Person object.
      * @param dateOfBirth the date of birth of the Person instance.
+     * @param name the full name of the Person instance.
+     */
+    Person(final Date dateOfBirth,
+           final Name name)
+    {
+        validateBirthDate(dateOfBirth);
+        validateName(name);
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfDeath = null;
+        this.name = name;
+    }
+
+    /*
+     * A constructor to instantiate a Person object.
+     * @param dateOfBirth the date of birth of the Person instance.
      * @param dateOfDeath the date of death of the Person instance.
      * @param name the full name of the Person instance.
      */
