@@ -87,7 +87,7 @@ public class Person implements Comparable<Person>, Printable, Reversible
 
         System.out.println("Date of Birth: " + dateOfBirth);
 
-        if(deathDateNull)
+        if(!deathDateNull)
         {
             System.out.println("Date of Death: " + dateOfDeath);
         }
